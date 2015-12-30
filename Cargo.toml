@@ -1,0 +1,4 @@
+[package]
+name = "rust-nfc"
+version = "0.0.1"
+authors = ["Isis Agora Lovecruft <isis@torproject.org>"]
