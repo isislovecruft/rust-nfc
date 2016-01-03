@@ -1,11 +1,9 @@
 
-#![feature(phase)]
-#[phase(plugin)] extern crate bindgen;
+#![feature(libc)]
+#![allow(non_snake_case)]
 
-#[allow(dead_code, uppercase_variables, non_camel_case_types)]
-mod nfc_bindings {
-    bindgen!("/usr/include/nfc/nfc.h",
-             "/usr/include/nfc/nfc-types.h",
-             "/usr/include/nfc/nfc-emulation.h",
-             match="nfc*.h", link="nfc")
-}
+extern crate libc;
+
+pub mod nfc;
+pub mod nfc_emulation;
+
