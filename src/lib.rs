@@ -5,5 +5,4 @@
 extern crate libc;
 
 pub mod nfc;
-pub mod nfc_emulation;
 
