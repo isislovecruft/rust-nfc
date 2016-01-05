@@ -1,5 +1,5 @@
 
-use libc::{size_t, uint8_t, uint32_t};
+use libc::{c_uint, size_t, uint8_t, uint32_t};
 
 pub enum NFCContextStruct { }
 pub type NFCContext = NFCContextStruct;
@@ -12,27 +12,27 @@ pub type NFCDriver = NFCDriverStruct;
 
 pub type NFCConnstring = [::libc::c_char; 1024usize];
 
-pub type Enum_Unnamed1 = ::libc::c_uint;
-pub const NP_TIMEOUT_COMMAND: ::libc::c_uint = 0;
-pub const NP_TIMEOUT_ATR: ::libc::c_uint = 1;
-pub const NP_TIMEOUT_COM: ::libc::c_uint = 2;
-pub const NP_HANDLE_CRC: ::libc::c_uint = 3;
-pub const NP_HANDLE_PARITY: ::libc::c_uint = 4;
-pub const NP_ACTIVATE_FIELD: ::libc::c_uint = 5;
-pub const NP_ACTIVATE_CRYPTO1: ::libc::c_uint = 6;
-pub const NP_INFINITE_SELECT: ::libc::c_uint = 7;
-pub const NP_ACCEPT_INVALID_FRAMES: ::libc::c_uint = 8;
-pub const NP_ACCEPT_MULTIPLE_FRAMES: ::libc::c_uint = 9;
-pub const NP_AUTO_ISO14443_4: ::libc::c_uint = 10;
-pub const NP_EASY_FRAMING: ::libc::c_uint = 11;
-pub const NP_FORCE_ISO14443_A: ::libc::c_uint = 12;
-pub const NP_FORCE_ISO14443_B: ::libc::c_uint = 13;
-pub const NP_FORCE_SPEED_106: ::libc::c_uint = 14;
+pub type Enum_Unnamed1 = c_uint;
+pub const NP_TIMEOUT_COMMAND: c_uint = 0;
+pub const NP_TIMEOUT_ATR: c_uint = 1;
+pub const NP_TIMEOUT_COM: c_uint = 2;
+pub const NP_HANDLE_CRC: c_uint = 3;
+pub const NP_HANDLE_PARITY: c_uint = 4;
+pub const NP_ACTIVATE_FIELD: c_uint = 5;
+pub const NP_ACTIVATE_CRYPTO1: c_uint = 6;
+pub const NP_INFINITE_SELECT: c_uint = 7;
+pub const NP_ACCEPT_INVALID_FRAMES: c_uint = 8;
+pub const NP_ACCEPT_MULTIPLE_FRAMES: c_uint = 9;
+pub const NP_AUTO_ISO14443_4: c_uint = 10;
+pub const NP_EASY_FRAMING: c_uint = 11;
+pub const NP_FORCE_ISO14443_A: c_uint = 12;
+pub const NP_FORCE_ISO14443_B: c_uint = 13;
+pub const NP_FORCE_SPEED_106: c_uint = 14;
 pub type nfc_property = Enum_Unnamed1;
-pub type Enum_Unnamed2 = ::libc::c_uint;
-pub const NDM_UNDEFINED: ::libc::c_uint = 0;
-pub const NDM_PASSIVE: ::libc::c_uint = 1;
-pub const NDM_ACTIVE: ::libc::c_uint = 2;
+pub type Enum_Unnamed2 = c_uint;
+pub const NDM_UNDEFINED: c_uint = 0;
+pub const NDM_PASSIVE: c_uint = 1;
+pub const NDM_ACTIVE: c_uint = 2;
 pub type nfc_dep_mode = Enum_Unnamed2;
 #[repr(C)]
 #[derive(Copy)]
@@ -203,26 +203,26 @@ impl ::std::default::Default for Union_Unnamed11 {
     fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
 pub type nfc_target_info = Union_Unnamed11;
-pub type Enum_Unnamed12 = ::libc::c_uint;
-pub const NBR_UNDEFINED: ::libc::c_uint = 0;
-pub const NBR_106: ::libc::c_uint = 1;
-pub const NBR_212: ::libc::c_uint = 2;
-pub const NBR_424: ::libc::c_uint = 3;
-pub const NBR_847: ::libc::c_uint = 4;
+pub type Enum_Unnamed12 = c_uint;
+pub const NBR_UNDEFINED: c_uint = 0;
+pub const NBR_106: c_uint = 1;
+pub const NBR_212: c_uint = 2;
+pub const NBR_424: c_uint = 3;
+pub const NBR_847: c_uint = 4;
 pub type nfc_baud_rate = Enum_Unnamed12;
-pub type Enum_Unnamed13 = ::libc::c_uint;
-pub const NMT_ISO14443A: ::libc::c_uint = 1;
-pub const NMT_JEWEL: ::libc::c_uint = 2;
-pub const NMT_ISO14443B: ::libc::c_uint = 3;
-pub const NMT_ISO14443BI: ::libc::c_uint = 4;
-pub const NMT_ISO14443B2SR: ::libc::c_uint = 5;
-pub const NMT_ISO14443B2CT: ::libc::c_uint = 6;
-pub const NMT_FELICA: ::libc::c_uint = 7;
-pub const NMT_DEP: ::libc::c_uint = 8;
+pub type Enum_Unnamed13 = c_uint;
+pub const NMT_ISO14443A: c_uint = 1;
+pub const NMT_JEWEL: c_uint = 2;
+pub const NMT_ISO14443B: c_uint = 3;
+pub const NMT_ISO14443BI: c_uint = 4;
+pub const NMT_ISO14443B2SR: c_uint = 5;
+pub const NMT_ISO14443B2CT: c_uint = 6;
+pub const NMT_FELICA: c_uint = 7;
+pub const NMT_DEP: c_uint = 8;
 pub type nfc_modulation_type = Enum_Unnamed13;
-pub type Enum_Unnamed14 = ::libc::c_uint;
-pub const N_TARGET: ::libc::c_uint = 0;
-pub const N_INITIATOR: ::libc::c_uint = 1;
+pub type Enum_Unnamed14 = c_uint;
+pub const N_TARGET: c_uint = 0;
+pub const N_INITIATOR: c_uint = 1;
 pub type nfc_mode = Enum_Unnamed14;
 #[repr(C)]
 #[derive(Copy)]
