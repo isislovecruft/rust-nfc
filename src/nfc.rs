@@ -1,6 +1,7 @@
 
 use libc::{c_uint, size_t, uint8_t, uint32_t};
 use std::clone::Clone;
+use std::default::Default;
 
 
 pub enum NFCContextStruct { }
@@ -61,7 +62,7 @@ pub struct NFCDepInfo {
 impl Clone for NFCDepInfo {
     fn clone(&self) -> Self { *self }
 }
-impl ::std::default::Default for NFCDepInfo {
+impl Default for NFCDepInfo {
     fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
 
@@ -79,7 +80,7 @@ pub struct Struct_Unnamed4 {
 impl Clone for Struct_Unnamed4 {
     fn clone(&self) -> Self { *self }
 }
-impl ::std::default::Default for Struct_Unnamed4 {
+impl Default for Struct_Unnamed4 {
     fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
 pub type nfc_iso14443a_info = Struct_Unnamed4;
@@ -95,7 +96,7 @@ pub struct Struct_Unnamed5 {
 impl Clone for Struct_Unnamed5 {
     fn clone(&self) -> Self { *self }
 }
-impl ::std::default::Default for Struct_Unnamed5 {
+impl Default for Struct_Unnamed5 {
     fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
 pub type nfc_felica_info = Struct_Unnamed5;
@@ -110,7 +111,7 @@ pub struct Struct_Unnamed6 {
 impl Clone for Struct_Unnamed6 {
     fn clone(&self) -> Self { *self }
 }
-impl ::std::default::Default for Struct_Unnamed6 {
+impl Default for Struct_Unnamed6 {
     fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
 pub type nfc_iso14443b_info = Struct_Unnamed6;
@@ -126,7 +127,7 @@ pub struct Struct_Unnamed7 {
 impl Clone for Struct_Unnamed7 {
     fn clone(&self) -> Self { *self }
 }
-impl ::std::default::Default for Struct_Unnamed7 {
+impl Default for Struct_Unnamed7 {
     fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
 pub type nfc_iso14443bi_info = Struct_Unnamed7;
@@ -138,7 +139,7 @@ pub struct Struct_Unnamed8 {
 impl Clone for Struct_Unnamed8 {
     fn clone(&self) -> Self { *self }
 }
-impl ::std::default::Default for Struct_Unnamed8 {
+impl Default for Struct_Unnamed8 {
     fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
 pub type nfc_iso14443b2sr_info = Struct_Unnamed8;
@@ -152,7 +153,7 @@ pub struct Struct_Unnamed9 {
 impl Clone for Struct_Unnamed9 {
     fn clone(&self) -> Self { *self }
 }
-impl ::std::default::Default for Struct_Unnamed9 {
+impl Default for Struct_Unnamed9 {
     fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
 pub type nfc_iso14443b2ct_info = Struct_Unnamed9;
@@ -165,7 +166,7 @@ pub struct Struct_Unnamed10 {
 impl Clone for Struct_Unnamed10 {
     fn clone(&self) -> Self { *self }
 }
-impl ::std::default::Default for Struct_Unnamed10 {
+impl Default for Struct_Unnamed10 {
     fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
 pub type nfc_jewel_info = Struct_Unnamed10;
@@ -211,7 +212,7 @@ impl Union_Unnamed11 {
 impl Clone for Union_Unnamed11 {
     fn clone(&self) -> Self { *self }
 }
-impl ::std::default::Default for Union_Unnamed11 {
+impl Default for Union_Unnamed11 {
     fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
 pub type nfc_target_info = Union_Unnamed11;
@@ -245,7 +246,7 @@ pub struct Struct_Unnamed15 {
 impl Clone for Struct_Unnamed15 {
     fn clone(&self) -> Self { *self }
 }
-impl ::std::default::Default for Struct_Unnamed15 {
+impl Default for Struct_Unnamed15 {
     fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
 pub type nfc_modulation = Struct_Unnamed15;
@@ -258,7 +259,7 @@ pub struct Struct_Unnamed16 {
 impl Clone for Struct_Unnamed16 {
     fn clone(&self) -> Self { *self }
 }
-impl ::std::default::Default for Struct_Unnamed16 {
+impl Default for Struct_Unnamed16 {
     fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
 pub type NFCTarget = Struct_Unnamed16;
