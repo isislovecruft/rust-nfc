@@ -10,7 +10,8 @@ pub type NFCDevice = NFCDeviceStruct;
 pub enum NFCDriverStruct { }
 pub type NFCDriver = NFCDriverStruct;
 
-pub type nfc_connstring = [::libc::c_char; 1024usize];
+pub type NFCConnstring = [::libc::c_char; 1024usize];
+
 pub type Enum_Unnamed1 = ::libc::c_uint;
 pub const NP_TIMEOUT_COMMAND: ::libc::c_uint = 0;
 pub const NP_TIMEOUT_ATR: ::libc::c_uint = 1;
@@ -254,12 +255,12 @@ extern "C" {
     pub fn nfc_init(context: *mut *mut NFCContext) -> ();
     pub fn nfc_exit(context: *mut NFCContext) -> ();
     pub fn nfc_register_driver(driver: *const NFCDriver) -> ::libc::c_int;
-    pub fn nfc_open(context: *mut NFCContext, connstring: nfc_connstring)
+    pub fn nfc_open(context: *mut NFCContext, connstring: NFCConnstring)
      -> *mut NFCDevice;
     pub fn nfc_close(pnd: *mut NFCDevice) -> ();
     pub fn nfc_abort_command(pnd: *mut NFCDevice) -> ::libc::c_int;
     pub fn nfc_list_devices(context: *mut NFCContext,
-                            connstrings: *mut nfc_connstring,
+                            connstrings: *mut NFCConnstring,
                             connstrings_len: size_t) -> size_t;
     pub fn nfc_idle(pnd: *mut NFCDevice) -> ::libc::c_int;
     pub fn nfc_initiator_init(pnd: *mut NFCDevice) -> ::libc::c_int;
