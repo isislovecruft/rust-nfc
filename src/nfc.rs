@@ -32,11 +32,16 @@ pub enum NFCProperty {
     NP_FORCE_SPEED_106,
 }
 
+#[repr(C)]
+#[derive(PartialEq)]
 pub enum NFCDepMode {
     NDM_UNDEFINED,
     NDM_PASSIVE,
     NDM_ACTIVE,
 }
+
+impl ::std::marker::Copy for NFCDepMode { }
+impl ::std::clone::Clone for NFCDepMode { fn clone(&self) -> Self { *self } }
 
 #[repr(C)]
 #[derive(Copy)]
