@@ -13,6 +13,7 @@ pub type NFCDriver = NFCDriverStruct;
 pub type NFCConnstring = [::libc::c_char; 1024usize];
 
 #[repr(C)]
+#[derive(PartialEq)]
 pub enum NFCProperty {
     NP_TIMEOUT_COMMAND,
     NP_TIMEOUT_ATR,
