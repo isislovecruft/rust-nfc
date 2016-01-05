@@ -45,7 +45,7 @@ impl ::std::clone::Clone for NFCDepMode { fn clone(&self) -> Self { *self } }
 
 #[repr(C)]
 #[derive(Copy)]
-pub struct Struct_Unnamed3 {
+pub struct NFCDepInfo {
     pub abtNFCID3: [uint8_t; 10usize],
     pub btDID: uint8_t,
     pub btBS: uint8_t,
@@ -56,13 +56,14 @@ pub struct Struct_Unnamed3 {
     pub szGB: size_t,
     pub ndm: NFCDepMode,
 }
-impl ::std::clone::Clone for Struct_Unnamed3 {
+impl ::std::clone::Clone for NFCDepInfo {
     fn clone(&self) -> Self { *self }
 }
-impl ::std::default::Default for Struct_Unnamed3 {
+impl ::std::default::Default for NFCDepInfo {
     fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
-pub type nfc_dep_info = Struct_Unnamed3;
+
+
 #[repr(C)]
 #[derive(Copy)]
 pub struct Struct_Unnamed4 {
@@ -200,7 +201,7 @@ impl Union_Unnamed11 {
         let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
         ::std::mem::transmute(raw.offset(0))
     }
-    pub unsafe fn ndi(&mut self) -> *mut nfc_dep_info {
+    pub unsafe fn ndi(&mut self) -> *mut NFCDepInfo {
         let raw: *mut u8 = ::std::mem::transmute(&self._bindgen_data_);
         ::std::mem::transmute(raw.offset(0))
     }
@@ -294,14 +295,14 @@ extern "C" {
     pub fn nfc_initiator_select_dep_target(pnd: *mut NFCDevice,
                                            ndm: NFCDepMode,
                                            nbr: nfc_baud_rate,
-                                           pndiInitiator: *const nfc_dep_info,
+                                           pndiInitiator: *const NFCDepInfo,
                                            pnt: *mut NFCTarget,
                                            timeout: ::libc::c_int)
      -> ::libc::c_int;
     pub fn nfc_initiator_poll_dep_target(pnd: *mut NFCDevice,
                                          ndm: NFCDepMode,
                                          nbr: nfc_baud_rate,
-                                         pndiInitiator: *const nfc_dep_info,
+                                         pndiInitiator: *const NFCDepInfo,
                                          pnt: *mut NFCTarget,
                                          timeout: ::libc::c_int)
      -> ::libc::c_int;
