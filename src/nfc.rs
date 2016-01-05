@@ -1,5 +1,7 @@
 
 use libc::{c_uint, size_t, uint8_t, uint32_t};
+use std::clone::Clone;
+
 
 pub enum NFCContextStruct { }
 pub type NFCContext = NFCContextStruct;
@@ -41,7 +43,7 @@ pub enum NFCDepMode {
 }
 
 impl ::std::marker::Copy for NFCDepMode { }
-impl ::std::clone::Clone for NFCDepMode { fn clone(&self) -> Self { *self } }
+impl Clone for NFCDepMode { fn clone(&self) -> Self { *self } }
 
 #[repr(C)]
 #[derive(Copy)]
@@ -56,7 +58,7 @@ pub struct NFCDepInfo {
     pub szGB: size_t,
     pub ndm: NFCDepMode,
 }
-impl ::std::clone::Clone for NFCDepInfo {
+impl Clone for NFCDepInfo {
     fn clone(&self) -> Self { *self }
 }
 impl ::std::default::Default for NFCDepInfo {
@@ -74,7 +76,7 @@ pub struct Struct_Unnamed4 {
     pub szAtsLen: size_t,
     pub abtAts: [uint8_t; 254usize],
 }
-impl ::std::clone::Clone for Struct_Unnamed4 {
+impl Clone for Struct_Unnamed4 {
     fn clone(&self) -> Self { *self }
 }
 impl ::std::default::Default for Struct_Unnamed4 {
@@ -90,7 +92,7 @@ pub struct Struct_Unnamed5 {
     pub abtPad: [uint8_t; 8usize],
     pub abtSysCode: [uint8_t; 2usize],
 }
-impl ::std::clone::Clone for Struct_Unnamed5 {
+impl Clone for Struct_Unnamed5 {
     fn clone(&self) -> Self { *self }
 }
 impl ::std::default::Default for Struct_Unnamed5 {
@@ -105,7 +107,7 @@ pub struct Struct_Unnamed6 {
     pub abtProtocolInfo: [uint8_t; 3usize],
     pub ui8CardIdentifier: uint8_t,
 }
-impl ::std::clone::Clone for Struct_Unnamed6 {
+impl Clone for Struct_Unnamed6 {
     fn clone(&self) -> Self { *self }
 }
 impl ::std::default::Default for Struct_Unnamed6 {
@@ -121,7 +123,7 @@ pub struct Struct_Unnamed7 {
     pub szAtrLen: size_t,
     pub abtAtr: [uint8_t; 33usize],
 }
-impl ::std::clone::Clone for Struct_Unnamed7 {
+impl Clone for Struct_Unnamed7 {
     fn clone(&self) -> Self { *self }
 }
 impl ::std::default::Default for Struct_Unnamed7 {
@@ -133,7 +135,7 @@ pub type nfc_iso14443bi_info = Struct_Unnamed7;
 pub struct Struct_Unnamed8 {
     pub abtUID: [uint8_t; 8usize],
 }
-impl ::std::clone::Clone for Struct_Unnamed8 {
+impl Clone for Struct_Unnamed8 {
     fn clone(&self) -> Self { *self }
 }
 impl ::std::default::Default for Struct_Unnamed8 {
@@ -147,7 +149,7 @@ pub struct Struct_Unnamed9 {
     pub btProdCode: uint8_t,
     pub btFabCode: uint8_t,
 }
-impl ::std::clone::Clone for Struct_Unnamed9 {
+impl Clone for Struct_Unnamed9 {
     fn clone(&self) -> Self { *self }
 }
 impl ::std::default::Default for Struct_Unnamed9 {
@@ -160,7 +162,7 @@ pub struct Struct_Unnamed10 {
     pub btSensRes: [uint8_t; 2usize],
     pub btId: [uint8_t; 4usize],
 }
-impl ::std::clone::Clone for Struct_Unnamed10 {
+impl Clone for Struct_Unnamed10 {
     fn clone(&self) -> Self { *self }
 }
 impl ::std::default::Default for Struct_Unnamed10 {
@@ -206,7 +208,7 @@ impl Union_Unnamed11 {
         ::std::mem::transmute(raw.offset(0))
     }
 }
-impl ::std::clone::Clone for Union_Unnamed11 {
+impl Clone for Union_Unnamed11 {
     fn clone(&self) -> Self { *self }
 }
 impl ::std::default::Default for Union_Unnamed11 {
@@ -240,7 +242,7 @@ pub struct Struct_Unnamed15 {
     pub nmt: nfc_modulation_type,
     pub nbr: nfc_baud_rate,
 }
-impl ::std::clone::Clone for Struct_Unnamed15 {
+impl Clone for Struct_Unnamed15 {
     fn clone(&self) -> Self { *self }
 }
 impl ::std::default::Default for Struct_Unnamed15 {
@@ -253,7 +255,7 @@ pub struct Struct_Unnamed16 {
     pub nti: nfc_target_info,
     pub nm: nfc_modulation,
 }
-impl ::std::clone::Clone for Struct_Unnamed16 {
+impl Clone for Struct_Unnamed16 {
     fn clone(&self) -> Self { *self }
 }
 impl ::std::default::Default for Struct_Unnamed16 {
