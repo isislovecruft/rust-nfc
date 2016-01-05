@@ -7,8 +7,9 @@ pub type NFCContext = NFCContextStruct;
 pub enum NFCDeviceStruct { }
 pub type NFCDevice = NFCDeviceStruct;
 
-pub enum Struct_nfc_driver { }
-pub type nfc_driver = Struct_nfc_driver;
+pub enum NFCDriverStruct { }
+pub type NFCDriver = NFCDriverStruct;
+
 pub type nfc_connstring = [::libc::c_char; 1024usize];
 pub type Enum_Unnamed1 = ::libc::c_uint;
 pub const NP_TIMEOUT_COMMAND: ::libc::c_uint = 0;
@@ -252,7 +253,7 @@ pub type NFCTarget = Struct_Unnamed16;
 extern "C" {
     pub fn nfc_init(context: *mut *mut NFCContext) -> ();
     pub fn nfc_exit(context: *mut NFCContext) -> ();
-    pub fn nfc_register_driver(driver: *const nfc_driver) -> ::libc::c_int;
+    pub fn nfc_register_driver(driver: *const NFCDriver) -> ::libc::c_int;
     pub fn nfc_open(context: *mut NFCContext, connstring: nfc_connstring)
      -> *mut NFCDevice;
     pub fn nfc_close(pnd: *mut NFCDevice) -> ();
