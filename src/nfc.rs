@@ -31,11 +31,12 @@ pub enum NFCProperty {
     NP_FORCE_SPEED_106,
 }
 
-pub type Enum_Unnamed2 = c_uint;
-pub const NDM_UNDEFINED: c_uint = 0;
-pub const NDM_PASSIVE: c_uint = 1;
-pub const NDM_ACTIVE: c_uint = 2;
-pub type nfc_dep_mode = Enum_Unnamed2;
+pub enum NFCDepMode {
+    NDM_UNDEFINED,
+    NDM_PASSIVE,
+    NDM_ACTIVE,
+}
+
 #[repr(C)]
 #[derive(Copy)]
 pub struct Struct_Unnamed3 {
@@ -47,7 +48,7 @@ pub struct Struct_Unnamed3 {
     pub btPP: uint8_t,
     pub abtGB: [uint8_t; 48usize],
     pub szGB: size_t,
-    pub ndm: nfc_dep_mode,
+    pub ndm: NFCDepMode,
 }
 impl ::std::clone::Clone for Struct_Unnamed3 {
     fn clone(&self) -> Self { *self }
@@ -285,14 +286,14 @@ extern "C" {
                                      uiPeriod: uint8_t, pnt: *mut NFCTarget)
      -> ::libc::c_int;
     pub fn nfc_initiator_select_dep_target(pnd: *mut NFCDevice,
-                                           ndm: nfc_dep_mode,
+                                           ndm: NFCDepMode,
                                            nbr: nfc_baud_rate,
                                            pndiInitiator: *const nfc_dep_info,
                                            pnt: *mut NFCTarget,
                                            timeout: ::libc::c_int)
      -> ::libc::c_int;
     pub fn nfc_initiator_poll_dep_target(pnd: *mut NFCDevice,
-                                         ndm: nfc_dep_mode,
+                                         ndm: NFCDepMode,
                                          nbr: nfc_baud_rate,
                                          pndiInitiator: *const nfc_dep_info,
                                          pnt: *mut NFCTarget,
