@@ -245,7 +245,7 @@ impl ::std::clone::Clone for Struct_Unnamed16 {
 impl ::std::default::Default for Struct_Unnamed16 {
     fn default() -> Self { unsafe { ::std::mem::zeroed() } }
 }
-pub type nfc_target = Struct_Unnamed16;
+pub type NFCTarget = Struct_Unnamed16;
 #[link(name = "/usr/include/nfc")]
 extern "C" {
     pub fn nfc_init(context: *mut *mut nfc_context) -> ();
@@ -266,30 +266,30 @@ extern "C" {
                                                nm: nfc_modulation,
                                                pbtInitData: *const uint8_t,
                                                szInitData: size_t,
-                                               pnt: *mut nfc_target)
+                                               pnt: *mut NFCTarget)
      -> ::libc::c_int;
     pub fn nfc_initiator_list_passive_targets(pnd: *mut nfc_device,
                                               nm: nfc_modulation,
-                                              ant: *mut nfc_target,
+                                              ant: *mut NFCTarget,
                                               szTargets: size_t)
      -> ::libc::c_int;
     pub fn nfc_initiator_poll_target(pnd: *mut nfc_device,
                                      pnmTargetTypes: *const nfc_modulation,
                                      szTargetTypes: size_t, uiPollNr: uint8_t,
-                                     uiPeriod: uint8_t, pnt: *mut nfc_target)
+                                     uiPeriod: uint8_t, pnt: *mut NFCTarget)
      -> ::libc::c_int;
     pub fn nfc_initiator_select_dep_target(pnd: *mut nfc_device,
                                            ndm: nfc_dep_mode,
                                            nbr: nfc_baud_rate,
                                            pndiInitiator: *const nfc_dep_info,
-                                           pnt: *mut nfc_target,
+                                           pnt: *mut NFCTarget,
                                            timeout: ::libc::c_int)
      -> ::libc::c_int;
     pub fn nfc_initiator_poll_dep_target(pnd: *mut nfc_device,
                                          ndm: nfc_dep_mode,
                                          nbr: nfc_baud_rate,
                                          pndiInitiator: *const nfc_dep_info,
-                                         pnt: *mut nfc_target,
+                                         pnt: *mut NFCTarget,
                                          timeout: ::libc::c_int)
      -> ::libc::c_int;
     pub fn nfc_initiator_deselect_target(pnd: *mut nfc_device)
@@ -323,9 +323,9 @@ extern "C" {
                                                cycles: *mut uint32_t)
      -> ::libc::c_int;
     pub fn nfc_initiator_target_is_present(pnd: *mut nfc_device,
-                                           pnt: *const nfc_target)
+                                           pnt: *const NFCTarget)
      -> ::libc::c_int;
-    pub fn nfc_target_init(pnd: *mut nfc_device, pnt: *mut nfc_target,
+    pub fn nfc_target_init(pnd: *mut nfc_device, pnt: *mut NFCTarget,
                            pbtRx: *mut uint8_t, szRx: size_t,
                            timeout: ::libc::c_int) -> ::libc::c_int;
     pub fn nfc_target_send_bytes(pnd: *mut nfc_device, pbtTx: *const uint8_t,
@@ -383,6 +383,6 @@ extern "C" {
      -> *const ::libc::c_char;
     pub fn str_nfc_baud_rate(nbr: nfc_baud_rate) -> *const ::libc::c_char;
     pub fn str_nfc_target(buf: *mut *mut ::libc::c_char,
-                          pnt: *const nfc_target, verbose: u8)
+                          pnt: *const NFCTarget, verbose: u8)
      -> ::libc::c_int;
 }
