@@ -1,8 +1,9 @@
 
 use libc::{size_t, uint8_t, uint32_t};
 
-pub enum Struct_nfc_context { }
-pub type nfc_context = Struct_nfc_context;
+pub enum NFCContextStruct { }
+pub type NFCContext = NFCContextStruct;
+
 pub enum Struct_nfc_device { }
 pub type nfc_device = Struct_nfc_device;
 pub enum Struct_nfc_driver { }
@@ -248,14 +249,14 @@ impl ::std::default::Default for Struct_Unnamed16 {
 pub type NFCTarget = Struct_Unnamed16;
 #[link(name = "/usr/include/nfc")]
 extern "C" {
-    pub fn nfc_init(context: *mut *mut nfc_context) -> ();
-    pub fn nfc_exit(context: *mut nfc_context) -> ();
+    pub fn nfc_init(context: *mut *mut NFCContext) -> ();
+    pub fn nfc_exit(context: *mut NFCContext) -> ();
     pub fn nfc_register_driver(driver: *const nfc_driver) -> ::libc::c_int;
-    pub fn nfc_open(context: *mut nfc_context, connstring: nfc_connstring)
+    pub fn nfc_open(context: *mut NFCContext, connstring: nfc_connstring)
      -> *mut nfc_device;
     pub fn nfc_close(pnd: *mut nfc_device) -> ();
     pub fn nfc_abort_command(pnd: *mut nfc_device) -> ::libc::c_int;
-    pub fn nfc_list_devices(context: *mut nfc_context,
+    pub fn nfc_list_devices(context: *mut NFCContext,
                             connstrings: *mut nfc_connstring,
                             connstrings_len: size_t) -> size_t;
     pub fn nfc_idle(pnd: *mut nfc_device) -> ::libc::c_int;
