@@ -12,23 +12,25 @@ pub type NFCDriver = NFCDriverStruct;
 
 pub type NFCConnstring = [::libc::c_char; 1024usize];
 
-pub type Enum_Unnamed1 = c_uint;
-pub const NP_TIMEOUT_COMMAND: c_uint = 0;
-pub const NP_TIMEOUT_ATR: c_uint = 1;
-pub const NP_TIMEOUT_COM: c_uint = 2;
-pub const NP_HANDLE_CRC: c_uint = 3;
-pub const NP_HANDLE_PARITY: c_uint = 4;
-pub const NP_ACTIVATE_FIELD: c_uint = 5;
-pub const NP_ACTIVATE_CRYPTO1: c_uint = 6;
-pub const NP_INFINITE_SELECT: c_uint = 7;
-pub const NP_ACCEPT_INVALID_FRAMES: c_uint = 8;
-pub const NP_ACCEPT_MULTIPLE_FRAMES: c_uint = 9;
-pub const NP_AUTO_ISO14443_4: c_uint = 10;
-pub const NP_EASY_FRAMING: c_uint = 11;
-pub const NP_FORCE_ISO14443_A: c_uint = 12;
-pub const NP_FORCE_ISO14443_B: c_uint = 13;
-pub const NP_FORCE_SPEED_106: c_uint = 14;
-pub type nfc_property = Enum_Unnamed1;
+#[repr(C)]
+pub enum NFCProperty {
+    NP_TIMEOUT_COMMAND,
+    NP_TIMEOUT_ATR,
+    NP_TIMEOUT_COM,
+    NP_HANDLE_CRC,
+    NP_HANDLE_PARITY,
+    NP_ACTIVATE_FIELD,
+    NP_ACTIVATE_CRYPTO1,
+    NP_INFINITE_SELECT,
+    NP_ACCEPT_INVALID_FRAMES,
+    NP_ACCEPT_MULTIPLE_FRAMES,
+    NP_AUTO_ISO14443_4,
+    NP_EASY_FRAMING,
+    NP_FORCE_ISO14443_A,
+    NP_FORCE_ISO14443_B,
+    NP_FORCE_SPEED_106,
+}
+
 pub type Enum_Unnamed2 = c_uint;
 pub const NDM_UNDEFINED: c_uint = 0;
 pub const NDM_PASSIVE: c_uint = 1;
@@ -363,10 +365,10 @@ extern "C" {
                                                   *mut *const nfc_baud_rate)
      -> ::libc::c_int;
     pub fn nfc_device_set_property_int(pnd: *mut NFCDevice,
-                                       property: nfc_property,
+                                       property: NFCProperty,
                                        value: ::libc::c_int) -> ::libc::c_int;
     pub fn nfc_device_set_property_bool(pnd: *mut NFCDevice,
-                                        property: nfc_property, bEnable: u8)
+                                        property: NFCProperty, bEnable: u8)
      -> ::libc::c_int;
     pub fn iso14443a_crc(pbtData: *mut uint8_t, szLen: size_t,
                          pbtCrc: *mut uint8_t) -> ();
